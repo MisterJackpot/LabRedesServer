@@ -7,15 +7,14 @@ import java.util.Scanner;
 
 public class TCPServer {
 
-    public final static int FILE_SIZE = 6022386;
-    public final static String FILE_TO_RECEIVED = "assets/source-downloaded.pdf";
+    public final static int FILE_SIZE = 19022386;
+    public final static String FILE_TO_RECEIVED = "assets/source-downloaded.jpg";
 
     public static void main (String args[]){
 
         try {
             ServerSocket server = new ServerSocket(3000);
 
-            InetAddress inet = server.getInetAddress();
             System.out.println("Porta = "+server.getLocalPort());
 
             while(true) {
