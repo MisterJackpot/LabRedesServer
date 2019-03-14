@@ -34,13 +34,15 @@ public class UDPServer {
 
             FileOutputStream fos = new FileOutputStream(FILE_TO_RECEIVED);
             BufferedOutputStream bos = new BufferedOutputStream(fos);
+            int aux = 0;
 
             //Recebe Pacotes
             for (int i = 0; i<size; i++){
                 DatagramPacket receivePacket = new DatagramPacket(mybytearray, mybytearray.length);
                 serverSocket.receive(receivePacket);
                 mybytearray = receivePacket.getData();
-                bos.write(mybytearray, i , receivePacket.getLength());
+                bos.write(mybytearray, 0 , receivePacket.getLength());
+                aux += receivePacket.getLength();
                 System.out.println(i + " File " + FILE_TO_RECEIVED
                         + " downloaded (" + receivePacket.getLength() + " bytes read)");
             }
